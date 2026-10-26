@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07060a">
+  <title>Send a Heart — Infinite Line Heart</title>
+  <meta name="description" content="Make someone a heart, drawn line by line. Add their name, write a note, and send a little love. Free, no sign-up.">
+  <meta property="og:title" content="A little love, drawn line by line.">
+  <meta property="og:description" content="Make a heart for someone. Add their name, write a note, share the link.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://send-a-heart.vercel.app/og.png">
+  <meta property="og:url" content="https://send-a-heart.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/core.js" defer></script>
+  <script src="/draw.js" defer></script>
+  <script src="/qrcode.js" defer></script>
+  <script src="/heartqr.js" defer></script>
+  <script src="/create.js" defer></script>
+</head>
+<body>
+<main class="creator">
+  <header>
+    <h1>A little love,<br>drawn <em>line by line.</em></h1>
+    <p class="lede">Make a heart for someone. Add their name, write a note, and send it their way.</p>
+  </header>
+  <figure class="preview">
+    <canvas id="heart" role="img" aria-label="A red heart drawing itself in sixteen nested lines"></canvas>
+    <figcaption id="preview-name">A heart for someone special</figcaption>
+  </figure>
+  <form id="create" novalidate>
+    <div class="field"><label for="to">Who's it for?</label><input id="to" name="to" maxlength="80" autocomplete="off" autocapitalize="words" placeholder="Their name" required aria-describedby="error"><p id="error" class="error" hidden>Add their name to make a heart.</p></div>
+    <div class="field"><label for="from">From <span>(optional)</span></label><input id="from" name="from" maxlength="80" autocomplete="off" autocapitalize="words" placeholder="Your name"></div>
+    <div class="field"><label for="note">A little note <span>(optional)</span></label><textarea id="note" name="note" maxlength="280" rows="3" placeholder="A thousand little ways to say I love you."></textarea><span class="count" id="count">0 / 140</span></div>
+    <button class="primary" type="submit">Create their heart</button>
+  </form>
+  <section id="result" class="result" hidden aria-labelledby="ready">
+    <h2 id="ready" tabindex="-1">Their heart is ready.</h2>
+    <label for="link" class="sr-only">Their shareable link</label><input id="link" readonly>
+    <div class="actions"><button id="copy" class="primary" type="button">Copy link</button><a id="whatsapp" class="button" target="_blank" rel="noopener noreferrer">WhatsApp</a><button id="share" type="button" hidden>Share…</button><a id="open" class="button" target="_blank" rel="noopener noreferrer">Open it</a></div>
+    <button id="makeqr" type="button">Make a heart QR code</button>
+    <div id="qrbox" hidden><canvas id="qr" width="1000" height="1000" role="img" aria-label="QR code that opens their heart"></canvas><div class="actions"><button id="saveqr" type="button">Save QR</button><button id="qrstyle" type="button">Use a plain QR</button></div><p class="fine">Put it on a card or a gift. A shorter note makes the code easier to scan.</p></div>
+    <p class="fine">They open the link, tap, and watch their heart unfold.</p>
+  </section>
+  <footer><p>Free to make. No sign-up. Just a little love.</p><p class="fine">Names and notes travel in the link. Anyone with it can open it.</p><a href="https://github.com/Devansh-Singhal" target="_blank" rel="noopener noreferrer">Made by Devansh Singhal</a><a href="https://sendabouquet.vercel.app" target="_blank" rel="noopener noreferrer">Send flowers, too</a></footer>
+</main>
+<p id="status" class="toast" role="status"></p>
+</body>
+</html>

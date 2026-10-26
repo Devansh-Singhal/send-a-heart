@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07060a">
+  <!--META-->
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/core.js" defer></script>
+  <script src="/draw.js" defer></script>
+  <script src="/receive.js" defer></script>
+</head>
+<body class="gift-page">
+<main class="gift">
+  <header><p id="sender" class="sender">Someone made this for you.</p><h1 id="recipient">For you.</h1></header>
+  <div class="gift-art"><canvas id="heart" role="img" aria-label="A red heart drawn line by line"></canvas><button id="reveal" class="primary" type="button">Open your heart</button></div>
+  <div id="message" class="message" hidden><p id="note"></p><p id="signature" class="sender"></p></div>
+  <nav class="gift-actions" aria-label="Heart actions"><button id="replay" class="text-button" type="button" hidden>Watch it again</button><a href="/">Make a heart for someone</a></nav>
+  <noscript><p>A little love, just for you. Turn on JavaScript to watch your heart draw itself.</p></noscript>
+</main>
+</body>
+</html>

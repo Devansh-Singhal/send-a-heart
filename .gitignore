@@ -1,0 +1,6 @@
+.vercel
+node_modules
+work
+.env*
+
+.vercel

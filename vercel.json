@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/f", "destination": "/api/for" },
+    { "source": "/for", "destination": "/api/for" }
+  ],
+  "functions": { "api/for.js": { "includeFiles": "heart.html" } },
+  "headers": [{ "source": "/(.*)", "headers": [
+    { "key": "X-Content-Type-Options", "value": "nosniff" },
+    { "key": "Referrer-Policy", "value": "no-referrer" }
+  ] }]
+}
