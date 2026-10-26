@@ -5,7 +5,7 @@
     { "source": "/for", "destination": "/api/for" }
   ],
   "functions": { "api/for.js": { "includeFiles": "heart.html" } },
-  "headers": [{ "source": "/(.*)", "headers": [
+  "headers": [{ "source": "/heart-audio.mp3", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] }, { "source": "/(.*)", "headers": [
     { "key": "X-Content-Type-Options", "value": "nosniff" },
     { "key": "Referrer-Policy", "value": "no-referrer" }
   ] }]
