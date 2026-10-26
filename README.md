@@ -4,6 +4,10 @@ A little love, drawn line by line. Type their name, add a note, and share a link
 
 **[Make one now](https://send-a-heart.vercel.app)** — free, no sign-up.
 
+![A red line heart beside the words A little love, drawn line by line](og.png)
+
+If this made someone smile, star the repository so others can find it.
+
 ## Send one
 1. Open the site.
 2. Enter their name, optionally your name and a short note.
