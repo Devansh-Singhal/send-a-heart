@@ -42,3 +42,11 @@ test('recipient preview escapes HTML and omits private notes from metadata', () 
   assert.match(html, /https:\/\/example.com\/og.png/);
   assert.equal(headers['Content-Type'], 'text/html; charset=utf-8');
 });
+
+test('recipient name is in the first HTML response before browser scripts run', () => {
+  const handler = require('../api/for');
+  let html;
+  handler({url:'/f?t=Recipient%20%24%26%20%3C3',headers:{host:'example.com'}}, {setHeader(){},end(value){html=value;}});
+  assert.match(html, /id="gate-name">Recipient \$&amp; &lt;3<\/span>/);
+  assert.doesNotMatch(html, /id="gate-name">for you/);
+});

@@ -23,5 +23,5 @@ module.exports = (req, res) => {
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.setHeader('Cache-Control', 'private, no-store');
   res.setHeader('Referrer-Policy', 'no-referrer');
-  res.end(template.replace('<!--META-->', meta));
+  res.end(template.replace('<!--META-->', () => meta).replace('<!--GATE_NAME-->', () => escape(gift.to || 'for you')));
 };

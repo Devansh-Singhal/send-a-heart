@@ -28,5 +28,3 @@ The original Python drawing remains in `main.py`. Sharing and QR utilities follo
 
 Made by [Devansh Singhal](https://github.com/Devansh-Singhal).
 
-## Replicate the workflow
-See [WORKFLOW.md](WORKFLOW.md) for the working process, live and dashboard links, deployment setup, analytics, audio extraction, and verification steps for future projects.
