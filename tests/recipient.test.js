@@ -15,7 +15,7 @@ function recipient({ playFails = false } = {}) {
   };
   function element(id) {
     if (id === 'bgm') return music;
-    if (!nodes.has(id)) nodes.set(id, { hidden: false, textContent: '', attributes: {},
+    if (!nodes.has(id)) nodes.set(id, { hidden: id === 'experience', textContent: '', attributes: {}, classList: { add() {} },
       addEventListener(name, fn) { this[name] = fn; },
       setAttribute(name, value) { this.attributes[name] = value; }, focus() {}
     });
@@ -25,7 +25,7 @@ function recipient({ playFails = false } = {}) {
     addEventListener(name, fn) { events[name] = fn; }
   };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../receive.js'), 'utf8'), {
-    document, location: { search: '?t=Recipient&f=Devansh&n=For+you' }, URLSearchParams,
+    document, location: { search: '?t=Recipient&f=Devansh&n=For+you' }, URLSearchParams, setTimeout: fn => fn(),
     Heart: require('../core'), makeHeart: () => ({ still: value => draws.push(['still', value]), play: () => draws.push(['play']) }),
     window: { addEventListener(name, fn) { events[name] = fn; } }
   });
@@ -34,12 +34,15 @@ function recipient({ playFails = false } = {}) {
 
 test('recipient waits with a blank drawing and silent audio until opened', () => {
   const page = recipient();
+  assert.equal(page.element('gate-name').textContent, 'Recipient');
+  assert.equal(page.element('experience').hidden, true);
   assert.deepEqual(page.draws, [['still', 0]]);
   assert.equal(page.music.plays, 0);
   page.element('reveal').click();
   assert.deepEqual(page.draws, [['still', 0], ['play']]);
   assert.equal(page.music.plays, 1);
   assert.equal(page.element('message').hidden, false);
+  assert.equal(page.element('experience').hidden, false);
 });
 
 test('replay restarts sound, mute is reversible, and background pauses sound', async () => {

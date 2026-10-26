@@ -8,18 +8,20 @@
   <meta name="referrer" content="no-referrer">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
+  <script src="/analytics.js" defer></script>
   <script src="/core.js" defer></script>
   <script src="/draw.js" defer></script>
   <script src="/receive.js" defer></script>
 </head>
 <body class="gift-page">
 <audio id="bgm" src="/heart-audio.mp3" preload="auto"></audio>
-<main class="gift">
+<button id="reveal" class="entry-gate" type="button" aria-label="Open your heart"><span class="g1" id="gate-name">for you</span><span class="g2">tap to open</span></button>
+<main class="gift" id="experience" hidden>
   <header><p id="sender" class="sender">Someone made this for you.</p><h1 id="recipient">For you.</h1></header>
-  <div class="gift-art"><canvas id="heart" role="img" aria-label="A red heart drawn line by line"></canvas><button id="reveal" class="primary" type="button">Open your heart</button></div>
+  <div class="gift-art"><canvas id="heart" role="img" aria-label="A red heart drawn line by line"></canvas></div>
   <div id="message" class="message" hidden><p id="note"></p><p id="signature" class="sender"></p></div>
   <nav class="gift-actions" aria-label="Heart actions"><button id="replay" class="text-button" type="button" hidden>Watch it again</button><button id="sound" class="text-button" type="button" aria-label="Mute sound" aria-pressed="true" hidden>Sound on</button><a href="/">Make a heart for someone</a></nav>
-  <noscript><p>A little love, just for you. Turn on JavaScript to watch your heart draw itself.</p></noscript>
 </main>
+<noscript><p>A little love, just for you. Turn on JavaScript to watch your heart draw itself.</p></noscript>
 </body>
 </html>

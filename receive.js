@@ -2,6 +2,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const gift = Heart.readGift(new URLSearchParams(location.search));
+  $('gate-name').textContent = gift.to || 'for you';
   $('recipient').textContent = gift.to ? 'For ' + gift.to + '.' : 'For you.';
   $('sender').textContent = gift.from ? gift.from + ' made this for you.' : 'Someone made this for you.';
   $('note').textContent = gift.note || 'A thousand little ways to say you matter.';
@@ -29,7 +30,9 @@
   $('reveal').addEventListener('click', () => {
     if (started) return;
     started = true;
-    $('reveal').hidden = true; $('message').hidden = false; $('replay').hidden = false;
+    $('reveal').classList.add('leaving');
+    setTimeout(() => { $('reveal').hidden = true; }, 750);
+    $('experience').hidden = false; $('message').hidden = false; $('replay').hidden = false;
     sound.hidden = false;
     replay(); $('replay').focus({ preventScroll: true });
   });

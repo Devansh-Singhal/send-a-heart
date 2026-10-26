@@ -2,7 +2,8 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/f", "destination": "/api/for" },
-    { "source": "/for", "destination": "/api/for" }
+    { "source": "/for", "destination": "/api/for" },
+    { "source": "/made", "destination": "/" }
   ],
   "functions": { "api/for.js": { "includeFiles": "heart.html" } },
   "headers": [{ "source": "/heart-audio.mp3", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] }, { "source": "/(.*)", "headers": [

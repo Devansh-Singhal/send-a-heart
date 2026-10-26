@@ -23,6 +23,8 @@
     $('whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent('A little love for you, ' + data.to + '. ' + current);
     $('share').hidden = !navigator.share; $('qrbox').hidden = true; $('result').hidden = false;
     $('ready').focus(); $('result').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' });
+    history.replaceState(null, '', '/made');
+    if (window.va) window.va('pageview', { route: '/made', path: '/made' });
   });
   $('copy').addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(current); toast('Link copied. Send a little love.'); }
